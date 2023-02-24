@@ -68,21 +68,15 @@ class Rpc:
         return self.send_raw_transaction(signed.rawTransaction.hex())
     
 if __name__ == '__main__':
-    privkey = 'e933342b81578ddb7c5cd9df12e3c00dcb2a35417542ad445cf89adb88affedf' # 这里替换成自己的私钥
+    privkey = '7a543a5d2b85f4a4befc32a58218b39fb44c793f0073ea1aaea824407d23c81d' # 这里替换成自己的私钥
     account = web3.Account.from_key(privkey)
-    rpc = Rpc()
-    value = 0.01 # 要存款的数量
-    gaslimit = 100000 # gaslimit
-    base_token = '0xe93c8cd0d409341205a592f8c4ac1a5fe5585cfa' # base存款的合约地址
-    method = '0xe9e05c42' # 存款方法hash值
-    addr_0 = account.address[2:].rjust(64,'0') # 地址格式处理
-    amount = int(value * math.pow(10, 18)) # eth的主币精度是18位
-    value = hex(amount) # value hex格式处理
-    unit_1 = value[2:].rjust(64,'0')
-    unit_2 = hex(int(gaslimit))[2:].rjust(64,'0')
-    bool_3 = '0000000000000000000000000000000000000000000000000000000000000000'
-    unit_4 = '00000000000000000000000000000000000000000000000000000000000000a0'
-    unit_5 = '0000000000000000000000000000000000000000000000000000000000000000'
-    data = method + addr_0 + unit_1 + unit_2 + bool_3 + unit_4 + unit_5 # 拼接数据
-    res = rpc.transfer(account, to=base_token, amount=amount, gaslimit=gaslimit, data=data) # 发送交易
+    rpc = Rpc(rpc='https://rpc.ankr.com/eth', chainid=1)
+    amount = 0.000777 # 要存款的数量
+    gaslimit = 116900 # gaslimit
+    mint_nft_token = '0xd4307e0acd12cf46fd6cf93bc264f5d5d1598792' # base存款的合约地址
+    method = '0xefef39a1' # mint nft 方法hash值
+    uint_1 = '0000000000000000000000000000000000000000000000000000000000000001'
+    data = method + uint_1 # 拼接数据
+    amount = hex(int(amount * math.pow(10, 18))) # 处理amount值
+    res = rpc.transfer(account, to=mint_nft_token, amount=amount, gaslimit=gaslimit, data=data) # 发送交易
     print(res)
