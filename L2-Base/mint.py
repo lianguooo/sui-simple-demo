@@ -1,3 +1,7 @@
+"""
+pip3 install web3
+"""
+
 import web3
 import math
 import requests
