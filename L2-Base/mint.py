@@ -72,7 +72,7 @@ class Rpc:
         return self.send_raw_transaction(signed.rawTransaction.hex())
     
 if __name__ == '__main__':
-    privkey = '7a543a5d2b85f4a4befc32a58218b39fb44c793f0073ea1aaea824407d23c81d' # 这里替换成自己的私钥
+    privkey = 'xxxxxxxxx' # 这里替换成自己的私钥
     account = web3.Account.from_key(privkey)
     rpc = Rpc(rpc='https://rpc.ankr.com/eth', chainid=1)
     amount = 0.000777 # 要存款的数量

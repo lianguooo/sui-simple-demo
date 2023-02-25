@@ -72,7 +72,7 @@ class Rpc:
         return self.send_raw_transaction(signed.rawTransaction.hex())
     
 if __name__ == '__main__':
-    privkey = 'e933342b81578ddb7c5cd9df12e3c00dcb2a35417542ad445cf89adb88affedf' # 这里替换成自己的私钥
+    privkey = 'xxxxxxx' # 这里替换成自己的私钥
     account = web3.Account.from_key(privkey)
     rpc = Rpc()
     value = 0.01 # 要存款的数量
