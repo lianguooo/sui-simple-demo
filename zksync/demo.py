@@ -95,7 +95,7 @@ if __name__ == '__main__':
     rpc = Rpc()
     value = 0.01 # 要存款的数量
     gaslimit = 600000 # gaslimit
-    token = '0x1908e2bf4a88f91e4ef0dc72f02b8ea36bea2319' # base存款的合约地址
+    token = '0x1908e2bf4a88f91e4ef0dc72f02b8ea36bea2319' # zksync存款的合约地址
     method = '0xeb672419' # 存款方法hash值
     addr_0 = account.address[2:].rjust(64,'0') # 地址格式处理
     amount = int(value * math.pow(10, 18)) # eth的主币精度是18位
